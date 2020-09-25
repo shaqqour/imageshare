@@ -41,6 +41,9 @@ export default function App() {
           source={{ uri: selectedImage.localUri} }
           style={styles.thumbnail}
         />
+        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}>
+          <Text style={styles.buttonText}>Share this photo</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -52,9 +55,7 @@ export default function App() {
       <Text style={styles.instructions} >
         To share a photo from your phone with a friend, just press the button below!
       </Text>
-      <TouchableOpacity
-      onPress={openImagePickerAsync}
-      style={styles.button}>
+      <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
         <Text style={styles.buttonText}>Pick a photo</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
