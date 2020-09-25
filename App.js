@@ -26,6 +26,14 @@ export default function App() {
     setSelectedImage({ localUri: pickerResult.uri });
   };
 
+  let openShareDialogAsync = async () => {
+    if(!(await Sharing.isAvailableAsync())) {
+      alert(`Sorry, sharing isn't available`);
+      return;
+    }
+    await Sharing.shareAsync(selectedImage.localUri);
+  };
+
   if (selectedImage !== null) {
     return (
       <View style={styles.container}>
